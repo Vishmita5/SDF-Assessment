@@ -72,7 +72,7 @@ public double getLowestRating() {
     this.lowestRating = lowestRating;
 }
 
-public void 
+// any methods here
 
 
 }

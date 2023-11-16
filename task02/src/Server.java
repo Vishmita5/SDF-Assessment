@@ -1,42 +1,31 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.ServerSocket;
+import java.net.Socket;
 
 public class Server {
 
     public static void main(String[] args) throws Exception {
         
-        int port= 3000;
-        ServerSocket s = new ServerSocket(port);
-        Socket cl;
-        DataInputStream data;
-        PrintStream toCl;
-        BufferedReader fromCl;
-        String str="";
-        try
-              {
-               data=new DataInputStream(System.in);
-               s=new ServerSocket(3000);        
-               System.out.println("Server Started");
-               cl=s.accept();
-               InputStreamReader isr=new InputStreamReader(client.getInputStream());
-               fromCl=new BufferedReader(isr);
-               toCl=new PrintStream(cl.getOutputStream());
-               while(true)
-                {
-                str=fromCl.readLine();
-                System.out.println(str);
-                str=":"+d.readLine();
-                toCl.println(str);
-                }
-              }
-       catch(Exception e)
-              {
-                System.out.println(e);
-              }
-    }
+      try {
+ServerSocket listener = new ServerSocket(3000);
+while (!finished) {
+Socket client = listener.accept(); 
+InputStream in = client.getInputStream();
+OutputStream out = client.getOutputStream();
+
+BufferedReader bin =
+new BufferedReader(new InputStreamReader(in) );
+String someString = bin.readLine();
+
+client.close();
 }
-
-        
-        
-
-
-        
+listener.close();
+} catch (IOException e) {
+System.err.println(e);
+}
+}
+}

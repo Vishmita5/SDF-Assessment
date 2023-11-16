@@ -29,8 +29,8 @@ public static void main(String[] args) {
             List<Playstore> playstore = classfied.get(category);
             System.out.printf("%s (%d)\n", playstore, playstore.size());
 
-        for (String category: classfied.keySet()) {
-            List<Playstore> playstore = classfied.get(category);
+        for (String lowestRateApp: classfied.keySet()) {
+            List<Playstore> playstore = classfied.get(lowestRateApp);
             System.out.printf("%s (%d)\n", playstore, playstore.size());
 
 

@@ -4,27 +4,18 @@ public class Client
 {
     public static void main(String args[])
     {
-    try
-        {
-          Socket server;
-          String str="";
-          DataInputStream d=new DataInputStream(System.in);
-          PrintStream toserver;
-          BufferedReader fromserver;
-          server=new Socket(3000);
-          InputStreamReader isr=new InputStreamReader(server.getInputStream());
-          fromserver= new BufferedReader(isr);
-          toserver=new PrintStream(server.getOutputStream());
-          while(true)
-           {
-           toserver.println(str);
-           str=fromserver.readLine();
-           System.out.println(str);
-           }
-        }
-    catch(Exception e)
-        {
-         System.out.println(e);
-        }
-    }
-}
+     try { Socket server = new Socket("localhost", 3000); 
+       // INFO: Backend https://sdfb4.chuklee.com is accessible
+
+       InputStream in = server.getInputStream();
+       OutputStream out = server.getOutputStream();
+        
+    
+/
+        BufferedReader bin =
+        new BufferedReader(new InputStreamReader(in) );
+        String response = bin.readLine();
+        server.close();
+} 
+catch (IOException e) {
+System.err.println(e);
